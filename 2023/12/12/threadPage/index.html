@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="什么是线程&#x2F;进程线程是处理器任务调度和执行的基本单位，CPU资源分配的最小单位 进程是操作系统资源分配的基本单位，是一系列线程的集合。 一个电脑启动的程序就是启动了一个进程；一个线程是一个指令流， 按照一定的顺序交给CPU执行。 一个进程包含多个线程。 并行和并发并行：单位时间多个处理器同时处理多个任务。 并发：一个处理器处理多个任务，按时间片轮流处理多个任务。">
+    <meta name="description" content="什么是线程&#x2F;进程线程是处理器任务调度和执行的基本单位，CPU资源分配的最小单位 进程是操作系统资源分配的基本单位，是一系列线程的集合。 一个电脑启动的程序就是启动了一个进程；一个线程是一个指令流， 按照一定的顺序交给CPU执行。 一个进程包含多个线程。 并行和并发并行：单位时间多个处理器同时处理多个任务。 并发：一个处理器处理多个任务，按时间片轮流处理多个任务。 多线程的优缺点优点：当一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java并发编程">
 <meta property="og:url" content="http://example.com/2023/12/12/threadPage/index.html">
 <meta property="og:site_name" content="BitterSweet">
-<meta property="og:description" content="什么是线程&#x2F;进程线程是处理器任务调度和执行的基本单位，CPU资源分配的最小单位 进程是操作系统资源分配的基本单位，是一系列线程的集合。 一个电脑启动的程序就是启动了一个进程；一个线程是一个指令流， 按照一定的顺序交给CPU执行。 一个进程包含多个线程。 并行和并发并行：单位时间多个处理器同时处理多个任务。 并发：一个处理器处理多个任务，按时间片轮流处理多个任务。">
+<meta property="og:description" content="什么是线程&#x2F;进程线程是处理器任务调度和执行的基本单位，CPU资源分配的最小单位 进程是操作系统资源分配的基本单位，是一系列线程的集合。 一个电脑启动的程序就是启动了一个进程；一个线程是一个指令流， 按照一定的顺序交给CPU执行。 一个进程包含多个线程。 并行和并发并行：单位时间多个处理器同时处理多个任务。 并发：一个处理器处理多个任务，按时间片轮流处理多个任务。 多线程的优缺点优点：当一">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-12T06:54:29.000Z">
-<meta property="article:modified_time" content="2023-12-12T09:04:44.442Z">
+<meta property="article:modified_time" content="2023-12-12T09:22:52.976Z">
 <meta property="article:author" content="wxq">
 <meta name="twitter:card" content="summary">
 
@@ -111,7 +111,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B-%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">什么是线程&#x2F;进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E5%92%8C%E5%B9%B6%E5%8F%91"><span class="nav-number">2.</span> <span class="nav-text">并行和并发</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B-%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">什么是线程&#x2F;进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E5%92%8C%E5%B9%B6%E5%8F%91"><span class="nav-number">2.</span> <span class="nav-text">并行和并发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">多线程的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%94%A8%E6%88%B7%E8%BF%9B%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">守护进程和用户进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81"><span class="nav-number">5.</span> <span class="nav-text">线程死锁</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -190,7 +190,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-12-12 14:54:29 / Modified: 17:04:44" itemprop="dateCreated datePublished" datetime="2023-12-12T14:54:29+08:00">2023-12-12</time>
+      <time title="Created: 2023-12-12 14:54:29 / Modified: 17:22:52" itemprop="dateCreated datePublished" datetime="2023-12-12T14:54:29+08:00">2023-12-12</time>
     </span>
 
   
@@ -209,6 +209,25 @@
 <p>一个进程包含多个线程。</p>
 <h3 id="并行和并发"><a href="#并行和并发" class="headerlink" title="并行和并发"></a>并行和并发</h3><p>并行：单位时间多个处理器同时处理多个任务。</p>
 <p>并发：一个处理器处理多个任务，按时间片轮流处理多个任务。</p>
+<h3 id="多线程的优缺点"><a href="#多线程的优缺点" class="headerlink" title="多线程的优缺点"></a>多线程的优缺点</h3><p>优点：当一个线程进入等待或阻塞状态时，CPU可以先去执行其他线程，提高CPU的执行效率。</p>
+<p>缺点：频繁的上下文切换会影响多线程的执行速度。</p>
+<h3 id="守护进程和用户进程"><a href="#守护进程和用户进程" class="headerlink" title="守护进程和用户进程"></a>守护进程和用户进程</h3><p>用户进程：平时使用到的线程均为用户线程。</p>
+<p>守护进程：用于服务用户线程的线程，例如垃圾回收线程</p>
+<h3 id="线程死锁"><a href="#线程死锁" class="headerlink" title="线程死锁"></a>线程死锁</h3><p><strong>死锁</strong>：由于两个或两个以上的线程相互竞争对方的资源，而同时不释放自己的资源，导致所有的线程同时被阻塞。</p>
+<p><strong>死锁产生的条件</strong>：</p>
+<ul>
+<li>互斥条件：一个资源在同一时刻只由一个线程占用。</li>
+<li>请求与保持条件：一个线程在请求被占资源时发生阻塞，并对已获得的资源保持不放。</li>
+<li>循环等待条件：发生死锁时，所有的线程会形成一个死循环，一直阻塞。</li>
+<li>不剥夺条件：线程已获得的资源在未使用完不能被其他线程剥夺，只能由自己使用完释放资源。</li>
+</ul>
+<p><strong>破坏死锁的条件</strong>：</p>
+<ul>
+<li>互斥条件不可被破坏。</li>
+<li>破坏请求与保持条件：一次申请所有的资源。</li>
+<li>破坏循环等待条件：按顺序来请求资源。</li>
+<li>破坏不剥夺条件：线程在申请不到所需资源时，主动放弃所持有的资源。</li>
+</ul>
 
     </div>
 
