@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>redispage | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="什么是Redis？Redis是一个高性能的非关系型的键值对数据库，使用C编写实现的。与传统的数据库不同的是Redis是存在内存中的，所以读写速度非常快，每秒可以处理超过10万次的读写操作，这也是Redis常常被用作缓存的原因。 Redis的优缺点 优点 读写性能好，读的速度可达110000次&#x2F;s，写的速度可达81000次&#x2F;s 支持数据持久化，有AOF和RDB两中持久化方式 数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redispage">
+<meta property="og:url" content="http://example.com/2023/09/16/redispage/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="什么是Redis？Redis是一个高性能的非关系型的键值对数据库，使用C编写实现的。与传统的数据库不同的是Redis是存在内存中的，所以读写速度非常快，每秒可以处理超过10万次的读写操作，这也是Redis常常被用作缓存的原因。 Redis的优缺点 优点 读写性能好，读的速度可达110000次&#x2F;s，写的速度可达81000次&#x2F;s 支持数据持久化，有AOF和RDB两中持久化方式 数据">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-09-16T14:32:53.000Z">
+<meta property="article:modified_time" content="2023-10-05T09:23:10.320Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-redispage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/09/16/redispage/" class="article-date">
+  <time class="dt-published" datetime="2023-09-16T14:32:53.000Z" itemprop="datePublished">2023-09-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      redispage
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是Redis？"><a href="#什么是Redis？" class="headerlink" title="什么是Redis？"></a>什么是Redis？</h3><p>Redis是一个<strong>高性能</strong>的<strong>非关系型</strong>的<strong>键值对数据库</strong>，使用C编写实现的。与传统的数据库不同的是Redis是存在内存中的，所以读写速度非常快，每秒可以处理超过10万次的读写操作，这也是Redis常常被用作缓存的原因。</p>
+<h3 id="Redis的优缺点"><a href="#Redis的优缺点" class="headerlink" title="Redis的优缺点"></a>Redis的优缺点</h3><ol>
+<li>优点<ol>
+<li><strong>读写性能好</strong>，读的速度可达110000次&#x2F;s，写的速度可达81000次&#x2F;s</li>
+<li><strong>支持数据持久化</strong>，有<strong>AOF</strong>和<strong>RDB</strong>两中持久化方式</li>
+<li><strong>数据结构丰富</strong>，支持String、List、Set、Hash等结构</li>
+<li><strong>支持事务</strong>，Redis所有的操作都是原子性的，并且还支持几个操作合并后的原子性执行，原子性指操作要么成功执行，要么失败不执行，不会执行一部分</li>
+<li><strong>支持主从复制</strong>，主机可以自动将数据同步到从机，进行<strong>读写分离</strong>。</li>
+</ol>
+</li>
+<li>缺点<ol>
+<li>因为Redis是将数据存到内存中的，所以会受到内存大小的限制，不能用作海量数据的读写</li>
+<li>Redis不具备自动容错和恢复功能，主机或从机宕机会导致前端部分读写请求失败，需要重启机器或者手动切换前端的IP才能切换</li>
+</ol>
+</li>
+</ol>
+<h3 id="Redis为什么常常用做缓存？相比于guava有什么优势？"><a href="#Redis为什么常常用做缓存？相比于guava有什么优势？" class="headerlink" title="Redis为什么常常用做缓存？相比于guava有什么优势？"></a>Redis为什么常常用做缓存？相比于guava有什么优势？</h3><p>缓存:访问速度比一般随机存取存储器快的一种高速存储器</p>
+<p>Redis是基于内存提供了高性能的数据存取功能，其比较显著的优势就是非常地快。</p>
+<p>缓存可以分为本地缓存或者分布式缓存</p>
+<p>guava就是一种本地缓存，主要特点是轻量并且快速，生命随着JVM的销毁而结束；缺点是在多实例的情况下，每个实例都要保存一份缓存，会导致缓存的一致性出现问题</p>
+<h3 id="Redis和Memcached的区别与相同点？"><a href="#Redis和Memcached的区别与相同点？" class="headerlink" title="Redis和Memcached的区别与相同点？"></a>Redis和Memcached的区别与相同点？</h3><p>相同点：</p>
+<ul>
+<li>读写性能都很高</li>
+<li>都是基于内存的数据库，通常被当做缓存来使用</li>
+<li>都要过期策略</li>
+<li>都是基于C语言实现</li>
+</ul>
+<p>不同点：</p>
+<table>
+<thead>
+<tr>
+<th>不同点</th>
+<th align="center">Redis</th>
+<th align="center">Memcached</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>是否支持主从复制</td>
+<td align="center">支持</td>
+<td align="center">不支持</td>
+</tr>
+<tr>
+<td>key长度</td>
+<td align="center">长度最大为2GB</td>
+<td align="center">长度最多为250个字节</td>
+</tr>
+<tr>
+<td>数据类型</td>
+<td align="center">不仅支持key-value类型的数据，还支持hash、list、set、zset等数据等数据类型的数据</td>
+<td align="center">仅支持key-value类型的数据</td>
+</tr>
+<tr>
+<td>数据持久化</td>
+<td align="center">支持数据持久化，可以将数据保存到磁盘</td>
+<td align="center">不支持数据持久化</td>
+</tr>
+<tr>
+<td>网络IO模型</td>
+<td align="center">单线程的多路复用模型</td>
+<td align="center">多线程的非阻塞IO模式</td>
+</tr>
+<tr>
+<td>集群</td>
+<td align="center">原生支持cluster 模式集群</td>
+<td align="center">无原生</td>
+</tr>
+</tbody></table>
+<h3 id="Redis键的过期删除策略"><a href="#Redis键的过期删除策略" class="headerlink" title="Redis键的过期删除策略"></a>Redis键的过期删除策略</h3><ul>
+<li><p>惰性删除</p>
+<p>只有访问这个键时才会检查它是否会过期，如果过期则清除</p>
+<ul>
+<li>优点：最大化的节约CPU资源</li>
+<li>缺点：如果大量过期键没有被访问，会一直占用大量内存</li>
+</ul>
+</li>
+<li><p>定时删除</p>
+<p>为每一个设置过期时间的key都创造一个定时器，到了过期时间就清除</p>
+<ol>
+<li>优点：该策略可以立即删除过期的键</li>
+<li>缺点：会占用大量CPU资源去处理过期的数据</li>
+</ol>
+</li>
+<li><p>定期删除</p>
+<p>每隔一段时间就对一些键进行检查，删除其中过期的键。该策略是惰性删除和定时删除的一个折中，既避免了占用大量CPU资源又避免了出现大量过期键不被清除占用内存的情况。</p>
+</li>
+</ul>
+<p>Redis中同时使用了惰性删除和定期删除两种</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/09/16/redispage/" data-id="clq1zitf70004x8udd6ljabyq" data-title="redispage" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/09/27/mysqlpage/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          mysqlpage
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/09/11/javade/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java基础</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/12/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/27/mysqlpage/">mysqlpage</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/16/redispage/">redispage</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/11/javade/">java基础</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/11/newpapername/">newpapername</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -108,7 +108,385 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/12/hello-world/" data-id="clq1zfg8d0000zcud5fr1c1a6" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/12/hello-world/" data-id="clq1ziteo0000x8udbny3abkn" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-mysqlpage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/09/27/mysqlpage/" class="article-date">
+  <time class="dt-published" datetime="2023-09-27T12:49:59.000Z" itemprop="datePublished">2023-09-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/09/27/mysqlpage/">mysqlpage</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是mysql"><a href="#什么是mysql" class="headerlink" title="什么是mysql"></a>什么是mysql</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/09/27/mysqlpage/" data-id="clq1zitew0002x8ud2q055h6f" data-title="mysqlpage" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-redispage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/09/16/redispage/" class="article-date">
+  <time class="dt-published" datetime="2023-09-16T14:32:53.000Z" itemprop="datePublished">2023-09-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/09/16/redispage/">redispage</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是Redis？"><a href="#什么是Redis？" class="headerlink" title="什么是Redis？"></a>什么是Redis？</h3><p>Redis是一个<strong>高性能</strong>的<strong>非关系型</strong>的<strong>键值对数据库</strong>，使用C编写实现的。与传统的数据库不同的是Redis是存在内存中的，所以读写速度非常快，每秒可以处理超过10万次的读写操作，这也是Redis常常被用作缓存的原因。</p>
+<h3 id="Redis的优缺点"><a href="#Redis的优缺点" class="headerlink" title="Redis的优缺点"></a>Redis的优缺点</h3><ol>
+<li>优点<ol>
+<li><strong>读写性能好</strong>，读的速度可达110000次&#x2F;s，写的速度可达81000次&#x2F;s</li>
+<li><strong>支持数据持久化</strong>，有<strong>AOF</strong>和<strong>RDB</strong>两中持久化方式</li>
+<li><strong>数据结构丰富</strong>，支持String、List、Set、Hash等结构</li>
+<li><strong>支持事务</strong>，Redis所有的操作都是原子性的，并且还支持几个操作合并后的原子性执行，原子性指操作要么成功执行，要么失败不执行，不会执行一部分</li>
+<li><strong>支持主从复制</strong>，主机可以自动将数据同步到从机，进行<strong>读写分离</strong>。</li>
+</ol>
+</li>
+<li>缺点<ol>
+<li>因为Redis是将数据存到内存中的，所以会受到内存大小的限制，不能用作海量数据的读写</li>
+<li>Redis不具备自动容错和恢复功能，主机或从机宕机会导致前端部分读写请求失败，需要重启机器或者手动切换前端的IP才能切换</li>
+</ol>
+</li>
+</ol>
+<h3 id="Redis为什么常常用做缓存？相比于guava有什么优势？"><a href="#Redis为什么常常用做缓存？相比于guava有什么优势？" class="headerlink" title="Redis为什么常常用做缓存？相比于guava有什么优势？"></a>Redis为什么常常用做缓存？相比于guava有什么优势？</h3><p>缓存:访问速度比一般随机存取存储器快的一种高速存储器</p>
+<p>Redis是基于内存提供了高性能的数据存取功能，其比较显著的优势就是非常地快。</p>
+<p>缓存可以分为本地缓存或者分布式缓存</p>
+<p>guava就是一种本地缓存，主要特点是轻量并且快速，生命随着JVM的销毁而结束；缺点是在多实例的情况下，每个实例都要保存一份缓存，会导致缓存的一致性出现问题</p>
+<h3 id="Redis和Memcached的区别与相同点？"><a href="#Redis和Memcached的区别与相同点？" class="headerlink" title="Redis和Memcached的区别与相同点？"></a>Redis和Memcached的区别与相同点？</h3><p>相同点：</p>
+<ul>
+<li>读写性能都很高</li>
+<li>都是基于内存的数据库，通常被当做缓存来使用</li>
+<li>都要过期策略</li>
+<li>都是基于C语言实现</li>
+</ul>
+<p>不同点：</p>
+<table>
+<thead>
+<tr>
+<th>不同点</th>
+<th align="center">Redis</th>
+<th align="center">Memcached</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>是否支持主从复制</td>
+<td align="center">支持</td>
+<td align="center">不支持</td>
+</tr>
+<tr>
+<td>key长度</td>
+<td align="center">长度最大为2GB</td>
+<td align="center">长度最多为250个字节</td>
+</tr>
+<tr>
+<td>数据类型</td>
+<td align="center">不仅支持key-value类型的数据，还支持hash、list、set、zset等数据等数据类型的数据</td>
+<td align="center">仅支持key-value类型的数据</td>
+</tr>
+<tr>
+<td>数据持久化</td>
+<td align="center">支持数据持久化，可以将数据保存到磁盘</td>
+<td align="center">不支持数据持久化</td>
+</tr>
+<tr>
+<td>网络IO模型</td>
+<td align="center">单线程的多路复用模型</td>
+<td align="center">多线程的非阻塞IO模式</td>
+</tr>
+<tr>
+<td>集群</td>
+<td align="center">原生支持cluster 模式集群</td>
+<td align="center">无原生</td>
+</tr>
+</tbody></table>
+<h3 id="Redis键的过期删除策略"><a href="#Redis键的过期删除策略" class="headerlink" title="Redis键的过期删除策略"></a>Redis键的过期删除策略</h3><ul>
+<li><p>惰性删除</p>
+<p>只有访问这个键时才会检查它是否会过期，如果过期则清除</p>
+<ul>
+<li>优点：最大化的节约CPU资源</li>
+<li>缺点：如果大量过期键没有被访问，会一直占用大量内存</li>
+</ul>
+</li>
+<li><p>定时删除</p>
+<p>为每一个设置过期时间的key都创造一个定时器，到了过期时间就清除</p>
+<ol>
+<li>优点：该策略可以立即删除过期的键</li>
+<li>缺点：会占用大量CPU资源去处理过期的数据</li>
+</ol>
+</li>
+<li><p>定期删除</p>
+<p>每隔一段时间就对一些键进行检查，删除其中过期的键。该策略是惰性删除和定时删除的一个折中，既避免了占用大量CPU资源又避免了出现大量过期键不被清除占用内存的情况。</p>
+</li>
+</ul>
+<p>Redis中同时使用了惰性删除和定期删除两种</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/09/16/redispage/" data-id="clq1zitf70004x8udd6ljabyq" data-title="redispage" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-javade" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/09/11/javade/" class="article-date">
+  <time class="dt-published" datetime="2023-09-11T10:50:20.000Z" itemprop="datePublished">2023-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/09/11/javade/">java基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="Java的语言特点"><a href="#Java的语言特点" class="headerlink" title="Java的语言特点"></a>Java的语言特点</h3><ul>
+<li>Java是一门面向对象的编程语言</li>
+<li>Java具有平台独立性和移植性。一次编译，到处运行</li>
+<li>Java具有较高的安全性和可靠性</li>
+<li>支持多线程</li>
+<li>支持网络编程</li>
+</ul>
+<hr>
+<h3 id="Java和C-的区别"><a href="#Java和C-的区别" class="headerlink" title="Java和C++的区别"></a>Java和C++的区别</h3><ul>
+<li>Java是纯粹的面向对象语言，所有的对象都继承自 java.lang.Object，C++ 兼容 C，不但支持面向对象也支持面向过程。</li>
+<li>Java通过虚拟机从而实现跨平台特性，C++ 依赖于特定的平台。</li>
+<li>Java没有指针，它的引用可以理解为安全指针，而C++具有和C一样的指针。</li>
+<li>Java支持自动垃圾回收，而C++需要手动回收。</li>
+<li>Java不支持多重继承，只能通过实现多个接口来达到相同目的，而C++支持多重继承。</li>
+<li>Java不支持操作符重载，</li>
+<li>Java的goto是保留字，但是不可用，C++可以使用goto</li>
+</ul>
+<hr>
+<h3 id="JDK-JRE-JVM三者的关系"><a href="#JDK-JRE-JVM三者的关系" class="headerlink" title="JDK&#x2F;JRE&#x2F;JVM三者的关系"></a>JDK&#x2F;JRE&#x2F;JVM三者的关系</h3><p>JDK（Java Development Kit）<br>是针对Java开发的产品，是整个Java的核心</p>
+<p>JRE（Java Runtime Environment）<br>就是Java 运行时环境。我们编写的Java程序必须要在JRE才能运行。它主要包含两个部分，JVM 和 Java 核心类库。</p>
+<p>JVM（Java Virtual Machine）<br>Java虚拟机，是Java实现跨平台的核心部分，能够运行以Java语言写的软件程序</p>
+<blockquote>
+<p>JRE &#x3D; JVM + Java 核心类库<br>JDK &#x3D; JRE + Java工具 + 编译器 + 调试器</p>
+</blockquote>
+<hr>
+<h3 id="Java的基本数据类型"><a href="#Java的基本数据类型" class="headerlink" title="Java的基本数据类型"></a>Java的基本数据类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>关键字</th>
+<th>包装器类型</th>
+<th>占用内存</th>
+<th>取值范围</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字节型</td>
+<td>byte</td>
+<td>Byte</td>
+<td>1</td>
+<td>-128(-2^7) ~ 127(2^7-1)</td>
+<td>0</td>
+</tr>
+<tr>
+<td>短整形</td>
+<td>short</td>
+<td>Short</td>
+<td>2</td>
+<td>-2^15 ~ 2^15-1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>整形</td>
+<td>int</td>
+<td>Integer</td>
+<td>4</td>
+<td>-2^31 ~ 2^31-1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>长整型</td>
+<td>long</td>
+<td>Long</td>
+<td>8</td>
+<td>-2^63 ~ 2^63-1</td>
+<td>0L</td>
+</tr>
+<tr>
+<td>单精度浮点型</td>
+<td>float</td>
+<td>Float</td>
+<td>4</td>
+<td>3.4e-45 ~ 1.4e38</td>
+<td>0.0F</td>
+</tr>
+<tr>
+<td>双精度浮点型</td>
+<td>double</td>
+<td>Double</td>
+<td>8</td>
+<td>4.9e-324 ~ 1.8e308</td>
+<td>0.0D</td>
+</tr>
+<tr>
+<td>字符型</td>
+<td>char</td>
+<td>Character</td>
+<td>2</td>
+<td></td>
+<td>‘\u0000’</td>
+</tr>
+<tr>
+<td>布尔型</td>
+<td>boolean</td>
+<td>Boolean</td>
+<td>1</td>
+<td>true&#x2F;flase</td>
+<td>flase</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="面向对象三大特征"><a href="#面向对象三大特征" class="headerlink" title="面向对象三大特征"></a>面向对象三大特征</h3><ul>
+<li><p>封装</p>
+<p>封装就是隐藏对象的属性和实现细节，仅对外公开接口，控制在程序中属性的读和修改的访问级别。</p>
+</li>
+<li><p>继承</p>
+<p>继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。</p>
+</li>
+<li><p>多态</p>
+<p>多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。</p>
+</li>
+</ul>
+<hr>
+<h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><ul>
+<li>面向过程优点：性能比面向对象高，因为类调用时需要实例化，开销比较大，比较消耗资源。缺点：没有面向对象易维护、易复用、易扩展</li>
+<li>面向对象优点：易维护、易复用、易扩展，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统更加灵活、更加易于维护缺点：性能比面向过程低</li>
+</ul>
+<h3 id="抽象类和接口的区别"><a href="#抽象类和接口的区别" class="headerlink" title="抽象类和接口的区别"></a>抽象类和接口的区别</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>相同点</th>
+<th>不同点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>抽象类</td>
+<td>接口和抽象类都不能被实例化</td>
+<td></td>
+</tr>
+<tr>
+<td>接口</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/09/11/javade/" data-id="clq1zitet0001x8ud09ldh3vu" data-title="java基础" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-newpapername" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/09/11/newpapername/" class="article-date">
+  <time class="dt-published" datetime="2023-09-11T07:30:50.000Z" itemprop="datePublished">2023-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/09/11/newpapername/">newpapername</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>第一个博客的日志记录</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/09/11/newpapername/" data-id="clq1zitex0003x8ud2ih41zn4" data-title="newpapername" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -138,7 +516,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li></ul>
     </div>
   </div>
 
@@ -152,6 +530,22 @@
         
           <li>
             <a href="/2023/12/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/27/mysqlpage/">mysqlpage</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/16/redispage/">redispage</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/11/javade/">java基础</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/11/newpapername/">newpapername</a>
           </li>
         
       </ul>
